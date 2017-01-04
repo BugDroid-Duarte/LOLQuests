@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="My account">
+
+        <EditTextPreference
+            android:title="IGN Nickname"
+            android:summary="BugDroid"
+            android:key="username"
+            android:defaultValue="nickname"
+            android:id="@+id/preference" />
+        <EditTextPreference
+            android:title="Server"
+            android:summary="EUW"
+            android:defaultValue="your server"
+            android:key="server"
+            android:id="@+id/preference2"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Advanced">
+
+        <CheckBoxPreference
+            android:title="Receive Notifications"
+            android:summary="Want to receive Push Notifications ?"
+            android:key="noti"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>
