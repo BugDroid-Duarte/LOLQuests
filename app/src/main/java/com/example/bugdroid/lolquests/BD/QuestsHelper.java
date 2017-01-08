@@ -18,12 +18,10 @@ import java.util.List;
 
 public class QuestsHelper extends SQLiteOpenHelper {
     
-    private static final int DATABASE_VERSION = 16;
-    private static final String DATABASE_NAME = "FinalQuestsList7";
+    private static final int DATABASE_VERSION = 20;
+    private static final String DATABASE_NAME = "QuestsTeste";
     private static final String TABLE_QUEST = "quests";
-    private static final String TABLE_QHISTORY = "questshistory";
     private static final String TABLE_USER = "user";
-
 
     private SQLiteDatabase dbase;
 
@@ -33,11 +31,6 @@ public class QuestsHelper extends SQLiteOpenHelper {
     private static final String KEY_PROGRESS = "progress";
     private static final String KEY_CSGOAL = "csgoal";
     private static final String KEY_EXP = "Exp";
-
-    private static final String KEY_HISTORY_ID = "id";
-    private static final String KEY_HISTORY_IDQUEST = "idquest";
-    private static final String KEY_HISTORY_PROGRESS = "progress";
-    private static final String KEY_HISTORY_CSGOAL = "csgoal";
 
     private static final String KEY_USER_ID = "id";
     private static final String KEY_USER_REGION = "region";
@@ -52,7 +45,6 @@ public class QuestsHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         dbase = db;
-
         String sqlquests = "CREATE TABLE IF NOT EXISTS " + TABLE_QUEST + "("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TYPE
                 + " INTEGER, " + KEY_QUEST  + " TEXT, " + KEY_PROGRESS +
@@ -63,31 +55,32 @@ public class QuestsHelper extends SQLiteOpenHelper {
                 + KEY_USER_NICK + " TEXT, " + KEY_USER_POINTS  + " TEXT, " + KEY_USER_QCOMPLETED +
                 " INTEGER )";
 
-        String sqlquestshistory = "CREATE TABLE IF NOT EXISTS " + TABLE_USER + "("
-                + KEY_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +  KEY_USER_REGION  + " TEXT, "
-                + KEY_USER_NICK + " TEXT, " + KEY_USER_POINTS  + " TEXT, " + KEY_USER_QCOMPLETED +
-                " INTEGER )";
-
         db.execSQL(sqlquests);
         db.execSQL(sqluser);
         addQuest();
     }
 
     private void addQuest() {
-        Quest q1 = new Quest(1, "Farm more than 100 minions !", 0, 100, 200);
+        Quest q1 = new Quest(1, "Farm more than 100 minions !", 0, 100, 100);
         this.addQuest(q1);
-        Quest q2 = new Quest(1, "Farm more than 150 minions !", 0, 150, 200);
+        Quest q2 = new Quest(1, "Farm more than 150 minions !", 0, 150, 150);
         this.addQuest(q2);
-        Quest q3 = new Quest(1, "Farm more than 175 minions !", 0, 175, 200);
+        Quest q3 = new Quest(1, "Farm more than 175 minions !", 0, 175, 170);
         this.addQuest(q3);
         Quest q4 = new Quest(1, "Farm more than 200 minions !", 0, 200, 200);
         this.addQuest(q4);
-        Quest q5 = new Quest(1, "Farm more than 230 minions !", 0, 230, 200);
+        Quest q5 = new Quest(1, "Farm more than 230 minions !", 0, 230, 230);
         this.addQuest(q5);
-        Quest q6 = new Quest(1, "Farm more than 250 minions !", 0, 250, 200);
+        Quest q6 = new Quest(1, "Farm more than 250 minions !", 0, 250, 250);
         this.addQuest(q6);
-        Quest q7 = new Quest(1, "Farm more than 300 minions !", 0, 300, 200);
+        Quest q7 = new Quest(1, "Farm more than 300 minions !", 0, 300, 500);
         this.addQuest(q7);
+        Quest q8 = new Quest(1, "Farm more than 325 minions !", 0, 325, 600);
+        this.addQuest(q8);
+        Quest q9 = new Quest(1, "Farm more than 350 minions !", 0, 350, 650);
+        this.addQuest(q9);
+        Quest q10 = new Quest(1, "Farm more than 400 minions !", 0, 325, 700);
+        this.addQuest(q10);
     }
 
     public void addQuest (Quest q) {

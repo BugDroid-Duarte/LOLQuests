@@ -2,9 +2,7 @@ package com.example.bugdroid.lolquests;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -28,14 +26,13 @@ public class GameHistory extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_history);
 
-        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-
         AsyncRiotAPI.setRegion(Region.EUW);
         AsyncRiotAPI.setAPIKey("RGAPI-06d9fe30-edbf-4d8b-a025-1c0a5de907a9");
 
         matchHistory = (ListView) findViewById(R.id.history);
 
-        nick = sharedPref.getString("username", "");
+        Intent i = getIntent();
+        nick = i.getExtras().getString("nome");
 
         Log.d(TAG, String.valueOf(nick));
 

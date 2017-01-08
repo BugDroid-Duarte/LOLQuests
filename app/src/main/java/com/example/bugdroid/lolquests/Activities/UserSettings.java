@@ -70,7 +70,6 @@ public class UserSettings extends AppCompatActivity  {
             }
         }
 
-
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             if (key.equals("username")) {
                 Preference pref = findPreference(key);
