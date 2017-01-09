@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity
                         if (csjogo >= csquest ) {
                             final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                             ViewDialog alert = new ViewDialog();
-                            alert.showDialog(MainActivity.this, "Congratulations, quest completed !", csquest, csjogo);
+                            alert.showDialog(MainActivity.this, "Quest completed!", csquest, csjogo);
 
                             int UpdatedPoints = sharedPref.getInt("points", 0) + newQuest.getExp();
 
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity
                             addPoints(UpdatedPoints, sharedPref.getString("username", ""));
                         } else {
                             NegativeViewDialog alert = new NegativeViewDialog();
-                            alert.showDialog(MainActivity.this, "What a noob, you failed the quest !", csquest, csjogo);
+                            alert.showDialog(MainActivity.this, "Quest incomplete!", csquest, csjogo);
                         }
                     }
                 });
@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_login) {
             if (session.isLoggedIn()) {
-                Toast.makeText(appContext, "You are already logged in !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(appContext, "You are already logged in!", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
