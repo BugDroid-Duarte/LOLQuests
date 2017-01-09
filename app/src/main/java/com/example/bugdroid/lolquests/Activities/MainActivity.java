@@ -1,14 +1,10 @@
 package com.example.bugdroid.lolquests.Activities;
 
 import android.app.AlarmManager;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -17,7 +13,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.NotificationCompat;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -35,11 +30,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.bugdroid.lolquests.BD.QuestsHelper;
 import com.example.bugdroid.lolquests.BD.SessionManager;
 import com.example.bugdroid.lolquests.Objects.Quest;
 import com.example.bugdroid.lolquests.Outros.AlarmReceiver;
-import com.example.bugdroid.lolquests.Outros.AppConfig;
 import com.example.bugdroid.lolquests.Outros.NegativeViewDialog;
 import com.example.bugdroid.lolquests.Outros.ViewDialog;
 import com.example.bugdroid.lolquests.R;
@@ -49,22 +42,6 @@ import com.robrua.orianna.type.core.common.Region;
 import com.robrua.orianna.type.core.game.Game;
 import com.robrua.orianna.type.exception.APIException;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,7 +69,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         appContext=getApplicationContext();
@@ -107,8 +84,6 @@ public class MainActivity extends AppCompatActivity
         desc = (TextView) findViewById(R.id.desc);
         status = (TextView) findViewById(R.id.status);
         exp = (TextView) findViewById(R.id.exp);
-        search = (EditText) findViewById(R.id.search);
-        button = (Button) findViewById(R.id.button);
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
@@ -277,7 +252,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            if ( session.isLoggedIn()) {
+            if (session.isLoggedIn()) {
                 Toast.makeText(appContext, "You are already logged in !", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -286,11 +261,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(MainActivity.this, ProfileQuest.class);
+            Intent intent = new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
-            Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_board) {
 
         } else if (id == R.id.nav_contacts) {
