@@ -31,6 +31,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bugdroid.lolquests.BD.SessionManager;
+import com.example.bugdroid.lolquests.GameAdapter;
+import com.example.bugdroid.lolquests.GameHistory;
 import com.example.bugdroid.lolquests.Objects.Quest;
 import com.example.bugdroid.lolquests.Outros.AlarmReceiver;
 import com.example.bugdroid.lolquests.Outros.NegativeViewDialog;
@@ -264,7 +266,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
-
+                Intent intent = new Intent(MainActivity.this, GameHistory.class);
+            startActivity(intent);
         } else if (id == R.id.nav_board) {
 
         } else if (id == R.id.nav_contacts) {

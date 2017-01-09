@@ -146,7 +146,10 @@ public class LoginActivity extends Activity {
                         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
                         SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("name", name);
+                        editor.putString("email", email);
                         editor.putString("username", nickname);
+                        editor.putString("member", String.valueOf(created_at));
                         editor.putInt("points", points);
                         editor.commit();
 

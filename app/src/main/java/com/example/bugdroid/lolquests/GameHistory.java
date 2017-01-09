@@ -2,7 +2,9 @@ package com.example.bugdroid.lolquests;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -31,8 +33,9 @@ public class GameHistory extends Activity {
 
         matchHistory = (ListView) findViewById(R.id.history);
 
-        Intent i = getIntent();
-        nick = i.getExtras().getString("nome");
+        final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        nick = sharedPref.getString("username", "");
 
         Log.d(TAG, String.valueOf(nick));
 
