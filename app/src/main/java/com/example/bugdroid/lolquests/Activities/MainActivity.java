@@ -273,7 +273,8 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, GameHistory.class);
             startActivity(intent);
         } else if (id == R.id.nav_board) {
-
+                Intent intent = new Intent(MainActivity.this, LeadersBoard.class);
+            startActivity(intent);
         } else if (id == R.id.nav_contacts) {
 
         } else if (id == R.id.nav_logout) {
