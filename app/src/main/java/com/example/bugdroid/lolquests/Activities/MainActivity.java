@@ -171,6 +171,10 @@ public class MainActivity extends AppCompatActivity
 
                             int UpdatedPoints = sharedPref.getInt("points", 0) + newQuest.getExp();
 
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putInt("points", UpdatedPoints);
+                            editor.commit();
+
                             addPoints(UpdatedPoints, sharedPref.getString("username", ""));
                         } else {
                             NegativeViewDialog alert = new NegativeViewDialog();
@@ -244,7 +248,6 @@ public class MainActivity extends AppCompatActivity
             // Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             // startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
