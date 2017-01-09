@@ -29,21 +29,14 @@
             android:label="Game History" />
         <activity
             android:name=".Activities.MainActivity"
-            android:label="About" />
-        <activity
-            android:name=".Activities.QuestsActivity"
-            android:label="@string/title_activity_quests"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Activities.ProfileQuest"
-            android:label="@string/title_activity_daily_quest"
-            android:theme="@style/AppTheme" />
+            android:label="About"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <receiver android:name=".Outros.AlarmReceiver" />
-
-        <activity android:name=".Activities.Preferences" />
         <activity android:name=".Activities.UserSettings" />
-        <activity android:name=".Activities.RegisterActivity"></activity>
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.Profile"
+                     android:label="Profile"/>
     </application>
 
 </manifest>

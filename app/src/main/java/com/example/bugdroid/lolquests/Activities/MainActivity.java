@@ -84,8 +84,6 @@ public class MainActivity extends AppCompatActivity
         desc = (TextView) findViewById(R.id.desc);
         status = (TextView) findViewById(R.id.status);
         exp = (TextView) findViewById(R.id.exp);
-        search = (EditText) findViewById(R.id.search);
-        button = (Button) findViewById(R.id.button);
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
@@ -254,7 +252,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_login) {
-            if ( session.isLoggedIn()) {
+            if (session.isLoggedIn()) {
                 Toast.makeText(appContext, "You are already logged in !", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -263,11 +261,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(MainActivity.this, ProfileQuest.class);
+            Intent intent = new Intent(MainActivity.this, Profile.class);
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
-            Intent intent = new Intent(MainActivity.this, QuestsActivity.class);
-            startActivity(intent);
+
         } else if (id == R.id.nav_board) {
 
         } else if (id == R.id.nav_contacts) {
