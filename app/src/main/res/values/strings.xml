@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LOLQuests</string>
+    <string name="app_name">LoL Quests</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_about">AboutActivity</string>
 

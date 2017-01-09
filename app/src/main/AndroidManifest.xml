@@ -29,7 +29,7 @@
             android:label="Game History" />
         <activity
             android:name=".Activities.MainActivity"
-            android:label="About"
+            android:label="LoL Quests"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <receiver android:name=".Outros.AlarmReceiver" />

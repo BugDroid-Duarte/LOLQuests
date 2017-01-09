@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
+import android.text.Html;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -16,7 +19,7 @@ import com.robrua.orianna.type.exception.APIException;
 
 import java.util.List;
 
-public class GameHistory extends Activity {
+public class GameHistory extends AppCompatActivity {
 
     private static final String TAG = "testenull";
     public static ListView matchHistory; //listview of matches
@@ -27,6 +30,9 @@ public class GameHistory extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_history);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Match History</font>"));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         AsyncRiotAPI.setRegion(Region.EUW);
         AsyncRiotAPI.setAPIKey("RGAPI-06d9fe30-edbf-4d8b-a025-1c0a5de907a9");
@@ -67,6 +73,12 @@ public class GameHistory extends Activity {
             Log.d(TAG, "ERRO, RIP");
         }
          }, nick );
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
 
