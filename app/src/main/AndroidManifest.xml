@@ -41,7 +41,8 @@
         <activity
             android:name=".Activities.Profile"
             android:label="Profile" />
-        <activity android:name=".Activities.LeadersBoard"></activity>
+        <activity android:name=".Activities.LeadersBoard" />
+        <activity android:name=".Activities.AboutActivity"></activity>
     </application>
 
 </manifest>

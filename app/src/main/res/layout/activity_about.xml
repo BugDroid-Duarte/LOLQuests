@@ -1,0 +1,224 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Profile">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/background"
+        android:scaleType="centerCrop"
+        android:id="@+id/imageView3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:text="About Us"/>
+
+            <View
+                android:layout_width="315dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:background="#FFFF"/>
+
+            <TextView
+                android:text="A feature that is present in a lot of games and very much aprreciated by the majority of videogaymers however in League of legends it isnt a thing yet: Quests.  Daily challenges that you can execute in order to win prizes or simply climb our ladder side by side with your friends."
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:textColor="#FFFF"
+                android:id="@+id/textView3"
+                android:layout_weight="0.20" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/imageView"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/aboutus1" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="275dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/diamond">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Daily Quests"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal">
+
+                    <TextView
+                        android:text="Go get your daily quest in your profile! Different quests available every 24 hours.."
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFF"
+                        android:id="@+id/textView4"
+                        android:layout_weight="0.20" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_below="@+id/imageView"
+                        android:layout_marginTop="24dp"
+                        android:layout_gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/aboutus2" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="275dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/diamond">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Do It"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:text="Get on summoners rift and complete your quest! You have every day until midnight to complete it before the quest gets updated!"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:textColor="#FFFF"
+                android:id="@+id/textView5"
+                android:layout_weight="0.20" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/imageView"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/aboutus3" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="275dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/diamond">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Get Rewards"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:text="Get on summoners rift and complete your quest! You have every day until midnight to complete it before the quest gets updated!"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:textColor="#FFFF"
+                android:id="@+id/textView6"
+                android:layout_weight="0.20" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dip"
+                android:layout_gravity="center"
+                android:background="@drawable/login"
+                android:text="Start Now!"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

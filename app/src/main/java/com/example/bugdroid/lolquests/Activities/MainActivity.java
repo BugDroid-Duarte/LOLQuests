@@ -265,7 +265,8 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         } else if (id == R.id.nav_about) {
-
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_profile) {
             Intent intent = new Intent(MainActivity.this, Profile.class);
             startActivity(intent);

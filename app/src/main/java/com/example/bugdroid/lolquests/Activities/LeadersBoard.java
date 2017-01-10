@@ -51,7 +51,6 @@ public class LeadersBoard extends AppCompatActivity {
         usersList = new ArrayList<HashMap<String, String>>();
 
         new GetLeaders().execute();
-
     }
 
     private class GetLeaders extends AsyncTask<Void, Void, Void> {
@@ -62,7 +61,6 @@ public class LeadersBoard extends AppCompatActivity {
         protected void onPreExecute() {
             list.setAdapter(null);
             super.onPreExecute();
-
         }
 
         @Override
@@ -128,8 +126,7 @@ public class LeadersBoard extends AppCompatActivity {
             }
             return null;
         }
-
-
+        
         @Override
         protected void onPostExecute (Void result){
             super.onPostExecute(result);
@@ -142,5 +139,11 @@ public class LeadersBoard extends AppCompatActivity {
 
                 list.setAdapter(adapter);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
