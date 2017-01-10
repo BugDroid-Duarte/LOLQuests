@@ -139,8 +139,7 @@ public class MainActivity extends AppCompatActivity
 
     public void startAlarm() {
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 30000;
-                //86400000;
+        int interval = 3600000;
 
         manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
     }
@@ -247,8 +246,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            // Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            // startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
