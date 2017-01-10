@@ -42,7 +42,7 @@
             android:name=".Activities.Profile"
             android:label="Profile" />
         <activity android:name=".Activities.LeadersBoard" />
-        <activity android:name=".Activities.AboutActivity"></activity>
+        <activity android:name=".Activities.AboutActivity" />
     </application>
 
 </manifest>

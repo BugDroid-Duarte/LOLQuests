@@ -34,7 +34,7 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
 
     private Button btnLogin;
     private Button btnLinkToRegister;
@@ -48,8 +48,6 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        getSupportActionBar().hide();
 
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);

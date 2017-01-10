@@ -64,8 +64,6 @@ public class AlarmReceiver extends BroadcastReceiver {
                         .setContentTitle("New Quest available")
                         .setContentText("You have a new quest to do !");
 
-        // para vibrar:
-        // builder.setVibrate(new long[] { 1000, 1000});
         builder.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
         Intent notificationIntent = new Intent(appContext, MainActivity.class);

@@ -169,8 +169,10 @@ public class MainActivity extends AppCompatActivity
                             ViewDialog alert = new ViewDialog();
                             alert.showDialog(MainActivity.this, "Quest completed!", csquest, csjogo);
 
+                            Log.e(TAG, String.valueOf(sharedPref.getInt("points", 0)));
+                            Log.e(TAG, String.valueOf(newQuest.getExp()));
                             int UpdatedPoints = sharedPref.getInt("points", 0) + newQuest.getExp();
-
+                            Log.e(TAG, String.valueOf(UpdatedPoints));
                             SharedPreferences.Editor editor = sharedPref.edit();
                             editor.putInt("points", UpdatedPoints);
                             editor.commit();

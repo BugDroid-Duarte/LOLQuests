@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/lolpq"
+        android:src="@drawable/logosoletras"
         android:layout_weight="0.71" />
 
 </LinearLayout>
