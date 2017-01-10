@@ -19,7 +19,7 @@
             android:title="Leaderboard" />
         <item
             android:id="@+id/nav_contacts"
-            android:title="Contacts" />
+            android:title="Contact Us" />
         <item
             android:id="@+id/nav_settings"
             android:title="Settings" />

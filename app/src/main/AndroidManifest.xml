@@ -43,6 +43,7 @@
             android:label="Profile" />
         <activity android:name=".Activities.LeadersBoard" />
         <activity android:name=".Activities.AboutActivity" />
+        <activity android:name=".Activities.Contacts"></activity>
     </application>
 
 </manifest>
