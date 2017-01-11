@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v7.app.NotificationCompat;
 import android.support.v7.preference.PreferenceManager;
@@ -42,7 +43,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = DadosNewQuest.edit();
         editor.putString("desc", newQuest.getDesc());
-        editor.putInt("status", newQuest.getProgress());
+        editor.putInt("status", 0);
         editor.putInt("exp", newQuest.getExp());
         editor.apply();
 
@@ -54,6 +55,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         showNewQuestNotification();
 
         Log.d("AlarmReceiver", "TRIGGER");
+
     }
 
     private void showNewQuestNotification() {

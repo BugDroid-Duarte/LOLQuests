@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences shareprefs = getSharedPreferences("cscs", MODE_PRIVATE);
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(this);
 
         session = new SessionManager(getApplicationContext());
 
@@ -102,19 +103,16 @@ public class MainActivity extends AppCompatActivity
         status.setText(String.valueOf(DadosNewQuest.getInt("status", 0)));
         exp.setText(String.valueOf(DadosNewQuest.getInt("exp", 0)));
 
-        Log.d("lul", DadosNewQuest.getString("desc", ""));
-        Log.d("lul", String.valueOf(DadosNewQuest.getInt("status", 0)));
-        Log.d("lul", String.valueOf(DadosNewQuest.getInt("exp", 0)));
-
-        MainActivity.status.setText(String.valueOf(newQuest.getProgress()));
-        MainActivity.exp.setText(String.valueOf(newQuest.getExp()));
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "A verificar ...", Toast.LENGTH_SHORT).show();
-                verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs",0));
+                if (DadosNewQuest.getInt("status",0) == 1) {
+                    Toast.makeText(MainActivity.this, "Already completed ! Wait for the next one.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "A verificar ...", Toast.LENGTH_SHORT).show();
+                    verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs", 0));
+                }
             }
         });
 
@@ -139,9 +137,11 @@ public class MainActivity extends AppCompatActivity
 
     public void startAlarm() {
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 3600000;
+        int interval = 30000;
+                //3600000;
 
         manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+
     }
 
     public void cancelAlarm() {
@@ -164,17 +164,24 @@ public class MainActivity extends AppCompatActivity
                         Log.d(TAG, String.valueOf(csjogo));
 
                         if (csjogo >= csquest ) {
+
                             final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            final SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
                             ViewDialog alert = new ViewDialog();
                             alert.showDialog(MainActivity.this, "Quest completed!", csquest, csjogo);
 
-                            Log.e(TAG, String.valueOf(sharedPref.getInt("points", 0)));
-                            Log.e(TAG, String.valueOf(newQuest.getExp()));
+                            status.setText(String.valueOf(1));
+
+                            SharedPreferences.Editor editor = DadosNewQuest.edit();
+                            editor.putInt("status", 1);
+                            editor.apply();
+
                             int UpdatedPoints = sharedPref.getInt("points", 0) + newQuest.getExp();
-                            Log.e(TAG, String.valueOf(UpdatedPoints));
-                            SharedPreferences.Editor editor = sharedPref.edit();
-                            editor.putInt("points", UpdatedPoints);
-                            editor.commit();
+
+                            SharedPreferences.Editor editor2 = sharedPref.edit();
+                            editor2.putInt("points", UpdatedPoints);
+                            editor2.commit();
 
                             addPoints(UpdatedPoints, sharedPref.getString("username", ""));
                         } else {

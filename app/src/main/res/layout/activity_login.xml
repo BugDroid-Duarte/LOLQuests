@@ -11,7 +11,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
@@ -19,10 +19,11 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/imageView2"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/lolpq"
-                android:id="@+id/imageView2" />
+                app:srcCompat="@mipmap/logosoletras" />
         </LinearLayout>
 
         <LinearLayout
@@ -39,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/border"
-                android:hint="@string/hint_email"
+                android:hint="FODASS"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:singleLine="true"
