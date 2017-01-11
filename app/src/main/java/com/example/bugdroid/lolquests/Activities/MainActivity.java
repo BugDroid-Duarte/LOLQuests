@@ -8,11 +8,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.StrictMode;
+import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bugdroid.lolquests.BD.SessionManager;
+import com.example.bugdroid.lolquests.BD.ShakeListener;
 import com.example.bugdroid.lolquests.GameAdapter;
 import com.example.bugdroid.lolquests.GameHistory;
 import com.example.bugdroid.lolquests.Objects.Quest;
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity
     public Button button;
     public Long csjogo = null; // minions farmados
     public static Quest newQuest = new Quest();
+    private ShakeListener Shaker;
 
     String URL = "https://lolquestsdb.000webhostapp.com/android_api_login/insertpoints.php";
 
@@ -77,10 +81,28 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         appContext=getApplicationContext();
 
+        final Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences shareprefs = getSharedPreferences("cscs", MODE_PRIVATE);
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // deteta quando abanamos o telemovel e executa
+        Shaker = new ShakeListener(this);
+        Shaker.setOnShakeListener(new ShakeListener.OnShakeListener () {
+            public void onShake()
+            {
+                if (DadosNewQuest.getInt("status",0) == 1) {
+                    vibe.vibrate(100);
+                    Toast.makeText(MainActivity.this, "Already completed ! Wait for the next one.", Toast.LENGTH_SHORT).show();
+                } else {
+                    vibe.vibrate(100);
+                    Toast.makeText(MainActivity.this, "Executing ...", Toast.LENGTH_SHORT).show();
+                    verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs", 0));
+                }
+            }
+        });
 
         session = new SessionManager(getApplicationContext());
 
@@ -110,7 +132,7 @@ public class MainActivity extends AppCompatActivity
                 if (DadosNewQuest.getInt("status",0) == 1) {
                     Toast.makeText(MainActivity.this, "Already completed ! Wait for the next one.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "A verificar ...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Executing ...", Toast.LENGTH_SHORT).show();
                     verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs", 0));
                 }
             }
