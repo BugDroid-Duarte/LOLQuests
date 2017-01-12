@@ -12,6 +12,7 @@ import android.graphics.RectF;
  * Created by BugDroid on 08/01/2017.
  */
 
+// para criar imagens com cantos redondos.
 public class ImageCircle {
 
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, int pixels) {

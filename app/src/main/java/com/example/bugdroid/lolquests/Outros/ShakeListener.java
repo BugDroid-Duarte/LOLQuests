@@ -1,4 +1,4 @@
-package com.example.bugdroid.lolquests.BD;
+package com.example.bugdroid.lolquests.Outros;
 
 /**
  * Created by BugDroid on 11/01/2017.

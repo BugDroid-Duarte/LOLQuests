@@ -30,16 +30,18 @@ public class AlarmReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
-        // For our recurring task, we'll just display a message
+        // Gera id random para usar na funcao getRandomQuest
         Random rand = new Random();
         long id = rand.nextInt(10);
 
-        newQuest = db.getRandomQuest(1);
+        newQuest = db.getRandomQuest(id);
 
+        // mostra os valores obtifos na main
         MainActivity.desc.setText(newQuest.getDesc());
         MainActivity.status.setText(String.valueOf(newQuest.getProgress()));
         MainActivity.exp.setText(String.valueOf(newQuest.getExp()));
 
+        // guarda nm sharedpreferences, para se o utilizador fechar e abrir a app os valores esta sempre la
         SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = DadosNewQuest.edit();
         editor.putString("desc", newQuest.getDesc());
@@ -52,6 +54,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         editor2.putLong("cscs", newQuest.getCsGoal());
         editor2.commit();
 
+        // executa esta função que cria uma notificação de que a quest foi atualizada.
         showNewQuestNotification();
 
         Log.d("AlarmReceiver", "TRIGGER");

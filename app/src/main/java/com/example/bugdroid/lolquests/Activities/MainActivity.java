@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.StrictMode;
 import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
@@ -14,7 +13,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -34,8 +32,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bugdroid.lolquests.BD.SessionManager;
-import com.example.bugdroid.lolquests.BD.ShakeListener;
-import com.example.bugdroid.lolquests.GameAdapter;
+import com.example.bugdroid.lolquests.Outros.ShakeListener;
 import com.example.bugdroid.lolquests.GameHistory;
 import com.example.bugdroid.lolquests.Objects.Quest;
 import com.example.bugdroid.lolquests.Outros.AlarmReceiver;
@@ -88,6 +85,8 @@ public class MainActivity extends AppCompatActivity
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(this);
 
+
+        // SENSOR AQUI
         // deteta quando abanamos o telemovel e executa
         Shaker = new ShakeListener(this);
         Shaker.setOnShakeListener(new ShakeListener.OnShakeListener () {
@@ -101,6 +100,10 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(MainActivity.this, "Executing ...", Toast.LENGTH_SHORT).show();
                     verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs", 0));
                 }
+                // Depois de executar uma vez nao faz mais por causa deste pause
+                // Mas se nao tiver mesmo que nao estejamos na aplicação ele esta sempre a fazer ..
+                // RESOLVER ISTO.
+                Shaker.pause();
             }
         });
 
@@ -158,7 +161,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void startAlarm() {
+        Shaker.resume();
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
+        // tempo que demora a atualizar a quest,neste caso 30 segundos para podermos ver a funcionar.
+        // a cada 30 segundos executa a class AlarmReceiver.
         int interval = 30000;
                 //3600000;
 
@@ -182,6 +189,7 @@ public class MainActivity extends AppCompatActivity
                     public void run() {
 
                         selectedGame = games.get(0);
+                        // A usar a API para ober o valor ao qual vamos comparar
                         csjogo = (long) selectedGame.getStats().getMinionsKilled() + selectedGame.getStats().getNeutralMinionsKilledEnemyJungle() + selectedGame.getStats().getNeutralMinionsKilledYourJungle();
                         Log.d(TAG, String.valueOf(csjogo));
 
@@ -220,6 +228,7 @@ public class MainActivity extends AppCompatActivity
         }, nick );
     }
 
+    // se a quest foi completada chama esta funçao que da pontos ao utilizador
     private void addPoints (final int points, final String nickname) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,

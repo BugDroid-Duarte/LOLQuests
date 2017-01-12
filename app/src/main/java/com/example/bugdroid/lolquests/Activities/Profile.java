@@ -39,7 +39,7 @@ public class Profile extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-
+        // obtem valores do utilizador que foram guardados no sharedpreferences ao fazer login
         realname.setText(sharedPref.getString("name", ""));
         email.setText(sharedPref.getString("email", ""));
         member.setText("Since: " + sharedPref.getString("member", ""));

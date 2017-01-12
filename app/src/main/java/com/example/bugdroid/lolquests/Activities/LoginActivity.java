@@ -146,7 +146,7 @@ public class LoginActivity extends Activity {
                         Log.d(TAG, nickname);
 
                         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
+                        // Ao fazer login guarda os dados associados a esse utilizador num sharedpreferences que sao depois usados na aplicação
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString("name", name);
                         editor.putString("email", email);
