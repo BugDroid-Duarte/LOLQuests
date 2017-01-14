@@ -1,2 +1,3 @@
-# LOLQuests
-Initial Commit
+# LOL Quests
+
+Android Application. FAQ soon.
