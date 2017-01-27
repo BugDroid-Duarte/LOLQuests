@@ -14,11 +14,6 @@ import android.widget.Toast;
 import com.example.bugdroid.lolquests.Outros.HttpHandler;
 import com.example.bugdroid.lolquests.R;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

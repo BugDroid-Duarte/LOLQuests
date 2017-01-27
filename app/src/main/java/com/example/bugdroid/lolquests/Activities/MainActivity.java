@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,7 +31,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bugdroid.lolquests.BD.SessionManager;
+<<<<<<< HEAD
 import com.example.bugdroid.lolquests.Outros.ShakeListener;
+=======
+import com.example.bugdroid.lolquests.GameAdapter;
+>>>>>>> parent of 0edafd2... Abanar o telemovel para executar ação
 import com.example.bugdroid.lolquests.GameHistory;
 import com.example.bugdroid.lolquests.Objects.Quest;
 import com.example.bugdroid.lolquests.Outros.AlarmReceiver;
@@ -66,7 +69,6 @@ public class MainActivity extends AppCompatActivity
     public Button button;
     public Long csjogo = null; // minions farmados
     public static Quest newQuest = new Quest();
-    private ShakeListener Shaker;
 
     String URL = "https://lolquestsdb.000webhostapp.com/android_api_login/insertpoints.php";
 
@@ -78,13 +80,12 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         appContext=getApplicationContext();
 
-        final Vibrator vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences shareprefs = getSharedPreferences("cscs", MODE_PRIVATE);
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(this);
 
+<<<<<<< HEAD
 
         // SENSOR AQUI
         // deteta quando abanamos o telemovel e executa
@@ -107,6 +108,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+=======
+>>>>>>> parent of 0edafd2... Abanar o telemovel para executar ação
         session = new SessionManager(getApplicationContext());
 
         desc = (TextView) findViewById(R.id.desc);
@@ -135,7 +138,7 @@ public class MainActivity extends AppCompatActivity
                 if (DadosNewQuest.getInt("status",0) == 1) {
                     Toast.makeText(MainActivity.this, "Already completed ! Wait for the next one.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Executing ...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "A verificar ...", Toast.LENGTH_SHORT).show();
                     verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs", 0));
                 }
             }
