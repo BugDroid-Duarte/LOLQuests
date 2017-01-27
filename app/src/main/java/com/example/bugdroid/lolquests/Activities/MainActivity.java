@@ -31,7 +31,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bugdroid.lolquests.BD.SessionManager;
-import com.example.bugdroid.lolquests.Outros.ShakeListener;
 
 import com.example.bugdroid.lolquests.GameHistory;
 import com.example.bugdroid.lolquests.Objects.Quest;
