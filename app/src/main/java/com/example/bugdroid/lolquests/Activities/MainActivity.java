@@ -31,11 +31,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.bugdroid.lolquests.BD.SessionManager;
-<<<<<<< HEAD
 import com.example.bugdroid.lolquests.Outros.ShakeListener;
-=======
-import com.example.bugdroid.lolquests.GameAdapter;
->>>>>>> parent of 0edafd2... Abanar o telemovel para executar ação
+
 import com.example.bugdroid.lolquests.GameHistory;
 import com.example.bugdroid.lolquests.Objects.Quest;
 import com.example.bugdroid.lolquests.Outros.AlarmReceiver;
@@ -85,31 +82,6 @@ public class MainActivity extends AppCompatActivity
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences DadosNewQuest = PreferenceManager.getDefaultSharedPreferences(this);
 
-<<<<<<< HEAD
-
-        // SENSOR AQUI
-        // deteta quando abanamos o telemovel e executa
-        Shaker = new ShakeListener(this);
-        Shaker.setOnShakeListener(new ShakeListener.OnShakeListener () {
-            public void onShake()
-            {
-                if (DadosNewQuest.getInt("status",0) == 1) {
-                    vibe.vibrate(100);
-                    Toast.makeText(MainActivity.this, "Already completed ! Wait for the next one.", Toast.LENGTH_SHORT).show();
-                } else {
-                    vibe.vibrate(100);
-                    Toast.makeText(MainActivity.this, "Executing ...", Toast.LENGTH_SHORT).show();
-                    verifyQUEST(sharedPref.getString("username", ""), shareprefs.getLong("cscs", 0));
-                }
-                // Depois de executar uma vez nao faz mais por causa deste pause
-                // Mas se nao tiver mesmo que nao estejamos na aplicação ele esta sempre a fazer ..
-                // RESOLVER ISTO.
-                Shaker.pause();
-            }
-        });
-
-=======
->>>>>>> parent of 0edafd2... Abanar o telemovel para executar ação
         session = new SessionManager(getApplicationContext());
 
         desc = (TextView) findViewById(R.id.desc);
@@ -164,7 +136,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void startAlarm() {
-        Shaker.resume();
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
         // tempo que demora a atualizar a quest,neste caso 30 segundos para podermos ver a funcionar.
